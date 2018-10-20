@@ -12,5 +12,20 @@ pipeline {
                 build 'deploy-to-staging'
               }
             }
+            stage('Deploy to Production'){
+              steps{
+                timeout(time: 5, unit: 'DAYS') {
+                  input 'Approve PRODUCTION Deployment?'
+                }
+              }
+              post{
+                success {
+                  echo 'Code deployed to Production'
+                }
+                failure{
+                  echo 'Deployment failed'
+                }
+              }
+            }
         }
 }
