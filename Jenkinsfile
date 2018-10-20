@@ -1,6 +1,5 @@
 pipeline {
           node {
-            stages {
             stage('Build'){
                     sh 'mvn clean package'
                     archiveArtifacts artifacts: '**/target/*.war', onlyIfSuccessful: true
@@ -9,5 +8,4 @@ pipeline {
                 build 'deploy-to-staging'
             }
           }
-        }
       }
