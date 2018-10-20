@@ -1,4 +1,4 @@
-pipeline {
+
           node {
             stage('Build'){
                     sh 'mvn clean package'
@@ -8,4 +8,3 @@ pipeline {
                 build 'deploy-to-staging'
             }
           }
-      }
