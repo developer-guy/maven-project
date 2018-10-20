@@ -8,7 +8,9 @@ pipeline {
                 }
             }
             stage('Deploy to Staging') {
-              build 'deploy-to-staging'
+              steps {
+                build 'deploy-to-staging'  
+              }
             }
         }
 }
